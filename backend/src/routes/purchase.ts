@@ -8,6 +8,7 @@ import {
   getPurchasedItemAmount,
 } from "../features/purchase/Purchase.service";
 import { purchaseParamSchema } from "../features/purchase/schema/PurchaseParam.schema";
+import { rateLimiter } from "../middleware/rateLimiter";
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.post(
   firebaseAuthMiddleware,
   loadUser("firebaseUser", "uid", "authUID"),
   validateRequest({ body: purchaseCreateSchema }),
+  rateLimiter,
   async (req: RequestWithUser, res) => {
     const { productID } = req.body;
     const user = req.user;
