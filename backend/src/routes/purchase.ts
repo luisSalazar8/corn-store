@@ -19,9 +19,9 @@ router.post(
   async (req: RequestWithUser, res) => {
     const { productID } = req.body;
     const user = req.user;
-    const newPurchase = createPurchase({ productID, userID: user!.id });
+    await createPurchase({ productID, userID: user!.id });
 
-    res.status(201).json(newPurchase);
+    res.status(200).send("🌽");
   }
 );
 
@@ -33,7 +33,7 @@ router.get(
   async (req: RequestWithUser, res) => {
     const { id } = req.params;
     const user = req.user;
-    const newPurchase = getPurchasedItemAmount(id, user!.id);
+    const newPurchase = await getPurchasedItemAmount(id, user!.id);
 
     res.status(200).json({ amout: newPurchase });
   }
