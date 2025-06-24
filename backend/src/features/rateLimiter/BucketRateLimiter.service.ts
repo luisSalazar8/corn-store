@@ -1,23 +1,14 @@
 import { AppSource } from "../../database";
 import { BucketRateLimit } from "../../database/entities/mainDB/BucketRateLimit";
 
-async function GetBucketRecord(userID: string) {
-  const bucketRLRepository = AppSource.getRepository(BucketRateLimit);
-  let bucketRecord = await bucketRLRepository
-    .createQueryBuilder("bucket")
-    .setLock("pessimistic_write")
-    .where("bucket.userId = :id", { id: userID })
-    .getOne();
-
-  return bucketRecord;
-}
-
 export async function CheckLimit(userID: string): Promise<boolean> {
   const refillRate = Number(process.env.RL_BUCKET_REFILL);
   const bucketMaxSize = Number(process.env.RL_BUCKET_SIZE);
   const bucketRLRepository = AppSource.getRepository(BucketRateLimit);
 
-  let bucketRecord = await GetBucketRecord(userID);
+  let bucketRecord = await bucketRLRepository.findOneBy({
+    user: { id: userID },
+  });
   if (!bucketRecord) {
     const newBucketRecord = bucketRLRepository.create({
       user: { id: userID },
