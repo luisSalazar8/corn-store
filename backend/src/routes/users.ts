@@ -6,7 +6,7 @@ import { createUser } from "../features/users/User.service";
 const router = Router();
 
 router.post(
-  "/user",
+  "/",
   validateRequest({ body: userRegisterSchema }),
   async (req, res) => {
     const newUser = await createUser(req.body);
@@ -14,4 +14,4 @@ router.post(
   }
 );
 
-export default { path: "/users", router };
+export default { path: "/user", router };

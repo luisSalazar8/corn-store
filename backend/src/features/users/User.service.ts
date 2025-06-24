@@ -29,3 +29,17 @@ export async function createUser(data: UserRegisterDTO): Promise<UserDTO> {
     email: result.email,
   };
 }
+
+export async function fetchUserByField<K extends keyof User>(
+  field: K,
+  value: User[K]
+) {
+  const userRepo = AppSource.getRepository(User);
+  const user = await userRepo.findOneBy({ [field]: value });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  return user;
+}
