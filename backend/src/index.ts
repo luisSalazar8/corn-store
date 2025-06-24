@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { AppSource } from "./database";
 import { initFirebase } from "./services/firebase";
+import { SYSTEM_ROUTES } from "./routes";
 
 dotenv.config();
 const app = express();
@@ -15,6 +16,10 @@ async function bootstrap() {
   try {
     await AppSource.initialize();
     initFirebase();
+
+    for (const route of SYSTEM_ROUTES) {
+      app.use(route.path, route.router);
+    }
 
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {

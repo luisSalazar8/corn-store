@@ -13,7 +13,8 @@ export const firebaseAuthMiddleware = async (
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Missing or invalid token" });
+    res.status(401).json({ message: "Missing or invalid token" });
+    return;
   }
 
   const token = authHeader.split(" ")[1];
@@ -23,6 +24,7 @@ export const firebaseAuthMiddleware = async (
     req.firebaseUser = decodedToken;
     next();
   } catch (err) {
-    return res.status(401).json({ message: "Unauthorized", error: err });
+    res.status(401).json({ message: "Unauthorized", error: err });
+    return;
   }
 };
