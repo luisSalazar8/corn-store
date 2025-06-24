@@ -20,7 +20,7 @@ export async function createPurchase(
   };
 }
 
-export async function getPurchasedItemAmout(productID: string, userID: string) {
+export async function getPurchasedItemAmount(productID: string, userID: string) {
   const purchaseRepository = AppSource.getRepository(Purchase);
   const total = purchaseRepository.countBy({
     product: { id: productID },
