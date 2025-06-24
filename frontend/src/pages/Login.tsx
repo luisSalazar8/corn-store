@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router";
 
 const Login = () => {
   return (
@@ -13,32 +14,20 @@ const Login = () => {
           <CardContent>
             <form>
               <div className="flex flex-col gap-3">
-                <div className="grid gap-2">
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Email"
-                    required
-                    className="rounded-md border-gray-input px-4 py-6"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="Password"
-                    required
-                    className="rounded-md border-gray-input px-4 py-6"
-                  />
-                  <div className="flex items-center text-gray-link">
-                    <a
-                      href="#"
-                      className="ml-auto inline-block text-sm underline-offset-4 hover:underline hover:decoration-gray-link"
-                    >
-                      Forgot your password?
-                    </a>
-                  </div>
-                </div>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  required
+                  className="rounded-md border-gray-input px-4 py-6"
+                />
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  required
+                  className="rounded-md border-gray-input px-4 py-6"
+                />
               </div>
             </form>
           </CardContent>
@@ -52,12 +41,12 @@ const Login = () => {
             <div className="text-gray-link text-sm">
               Don’t have account?
               <span className="text-gray-footer ml-1 text-sm">
-                <a
-                  href="#"
+                <Link
+                  to="/register"
                   className="underline-offset-4 hover:underline hover:decoration-gray-footer"
                 >
                   Register
-                </a>
+                </Link>
               </span>
             </div>
           </CardFooter>
