@@ -6,7 +6,7 @@ export interface RequestWithUser extends Request {
   user?: User;
 }
 
-export function createLoadUser(
+export function loadUser(
   source: string,
   sourceField: string,
   dbField: keyof User

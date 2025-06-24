@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { firebaseAuthMiddleware } from "../middleware/firebaseAuth";
-import { createLoadUser, RequestWithUser } from "../middleware/loadUser";
+import { loadUser, RequestWithUser } from "../middleware/loadUser";
 import { validateRequest } from "../middleware/validateRequest";
 import { purchaseCreateSchema } from "../features/purchase/schema/PurchaseCreate.schema";
 import {
@@ -14,7 +14,7 @@ const router = Router();
 router.post(
   "/",
   firebaseAuthMiddleware,
-  createLoadUser("firebaseUser", "uid", "authUID"),
+  loadUser("firebaseUser", "uid", "authUID"),
   validateRequest({ body: purchaseCreateSchema }),
   async (req: RequestWithUser, res) => {
     const { productID } = req.body;
@@ -28,7 +28,7 @@ router.post(
 router.get(
   "/:id",
   firebaseAuthMiddleware,
-  createLoadUser("firebaseUser", "uid", "authUID"),
+  loadUser("firebaseUser", "uid", "authUID"),
   validateRequest({ params: purchaseParamSchema }),
   async (req: RequestWithUser, res) => {
     const { id } = req.params;
