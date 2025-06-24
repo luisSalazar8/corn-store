@@ -3,7 +3,11 @@ import { firebaseAuthMiddleware } from "../middleware/firebaseAuth";
 import { createLoadUser, RequestWithUser } from "../middleware/loadUser";
 import { validateRequest } from "../middleware/validateRequest";
 import { purchaseCreateSchema } from "../features/purchase/schema/PurchaseCreate.schema";
-import { createPurchase } from "../features/purchase/Purchase.service";
+import {
+  createPurchase,
+  getPurchasedItemAmout,
+} from "../features/purchase/Purchase.service";
+import { purchaseParamSchema } from "../features/purchase/schema/PurchaseParam.schema";
 
 const router = Router();
 
@@ -18,6 +22,20 @@ router.post(
     const newPurchase = createPurchase({ productID, userID: user!.id });
 
     res.status(201).json(newPurchase);
+  }
+);
+
+router.get(
+  "/:id",
+  firebaseAuthMiddleware,
+  createLoadUser("firebaseUser", "uid", "authUID"),
+  validateRequest({ params: purchaseParamSchema }),
+  async (req: RequestWithUser, res) => {
+    const { id } = req.params;
+    const user = req.user;
+    const newPurchase = getPurchasedItemAmout(id, user!.id);
+
+    res.status(200).json({ amout: newPurchase });
   }
 );
 

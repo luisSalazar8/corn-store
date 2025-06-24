@@ -19,3 +19,13 @@ export async function createPurchase(
     id: result.id,
   };
 }
+
+export async function getPurchasedItemAmout(productID: string, userID: string) {
+  const purchaseRepository = AppSource.getRepository(Purchase);
+  const total = purchaseRepository.countBy({
+    product: { id: productID },
+    user: { id: userID },
+  });
+
+  return total;
+}
