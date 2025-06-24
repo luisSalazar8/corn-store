@@ -1,3 +1,4 @@
+import PasswordInput from "@/components/formComponents/PasswordInput";
 import StyledCard from "@/components/styledComponents/StyledCard";
 import StyledInput from "@/components/styledComponents/StyledInput";
 import SuccessButton from "@/components/styledComponents/SuccessButton";
@@ -21,12 +22,7 @@ const Login = () => {
                   placeholder="Email"
                   required
                 />
-                <StyledInput
-                  id="password"
-                  type="password"
-                  placeholder="Password"
-                  required
-                />
+                <PasswordInput id="password" placeholder="Password" required />
               </div>
             </form>
           </CardContent>
