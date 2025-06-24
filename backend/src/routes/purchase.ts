@@ -5,7 +5,7 @@ import { validateRequest } from "../middleware/validateRequest";
 import { purchaseCreateSchema } from "../features/purchase/schema/PurchaseCreate.schema";
 import {
   createPurchase,
-  getPurchasedItemAmout,
+  getPurchasedItemAmount,
 } from "../features/purchase/Purchase.service";
 import { purchaseParamSchema } from "../features/purchase/schema/PurchaseParam.schema";
 
@@ -33,7 +33,7 @@ router.get(
   async (req: RequestWithUser, res) => {
     const { id } = req.params;
     const user = req.user;
-    const newPurchase = getPurchasedItemAmout(id, user!.id);
+    const newPurchase = getPurchasedItemAmount(id, user!.id);
 
     res.status(200).json({ amout: newPurchase });
   }
