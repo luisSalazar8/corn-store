@@ -1,11 +1,13 @@
 import PasswordInput from "@/components/formComponents/PasswordInput";
 import StyledCard from "@/components/styledComponents/StyledCard";
 import StyledInput from "@/components/styledComponents/StyledInput";
-import SuccessButton from "@/components/styledComponents/SuccessButton";
 import { CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router";
 import { FormProvider, useForm } from "react-hook-form";
 import Controlled from "@/components/formComponents/Controlled";
+import { useMutation } from "@tanstack/react-query";
+import { LogIn } from "@/services/auth/Login";
+import LoadingButton from "@/components/formComponents/LoadingButton";
 
 interface LoginForm {
   email: string;
@@ -15,7 +17,16 @@ interface LoginForm {
 const Login = () => {
   const methods = useForm<LoginForm>();
   const { handleSubmit } = methods;
-  const onSubmit = (data: LoginForm) => console.log(data);
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: (data: LoginForm) => {
+      return LogIn(data.email, data.password);
+    },
+  });
+
+  const onSubmit = (data: LoginForm) => {
+    mutate(data);
+  };
 
   return (
     <div className="my-20">
@@ -25,7 +36,6 @@ const Login = () => {
             <CardTitle className="mx-auto text-3.5xl font-semibold text-gray-footer">
               Sign In
             </CardTitle>
-
             <CardContent>
               <FormProvider {...methods}>
                 <div className="flex flex-col gap-3">
@@ -51,7 +61,7 @@ const Login = () => {
               </FormProvider>
             </CardContent>
             <CardFooter className="flex-col gap-2">
-              <SuccessButton type="submit">Login</SuccessButton>
+              <LoadingButton isLoading={isPending}>Login</LoadingButton>
               <div className="text-gray-link text-sm">
                 Don’t have account?
                 <span className="text-gray-footer ml-1 text-sm">

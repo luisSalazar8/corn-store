@@ -9,9 +9,7 @@ const SuccessButton = ({
     <Button
       className={cn("w-full bg-success px-8 py-5 rounded-[43px]", className)}
       {...otherProps}
-    >
-      Login
-    </Button>
+    />
   );
 };
 
