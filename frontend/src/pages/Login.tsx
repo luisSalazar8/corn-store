@@ -2,12 +2,13 @@ import PasswordInput from "@/components/formComponents/PasswordInput";
 import StyledCard from "@/components/styledComponents/StyledCard";
 import StyledInput from "@/components/styledComponents/StyledInput";
 import { CardContent, CardFooter, CardTitle } from "@/components/ui/card";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FormProvider, useForm } from "react-hook-form";
 import Controlled from "@/components/formComponents/Controlled";
 import { useMutation } from "@tanstack/react-query";
 import { LogIn } from "@/services/auth/Login";
 import LoadingButton from "@/components/formComponents/LoadingButton";
+import { toast } from "sonner";
 
 interface LoginForm {
   email: string;
@@ -17,10 +18,19 @@ interface LoginForm {
 const Login = () => {
   const methods = useForm<LoginForm>();
   const { handleSubmit } = methods;
+  const navigate = useNavigate();
 
   const { mutate, isPending } = useMutation({
     mutationFn: (data: LoginForm) => {
       return LogIn(data.email, data.password);
+    },
+    onError: () => {
+      toast.error("Log In Failed", {
+        description: "An error ocurred, please try again latter!",
+      });
+    },
+    onSuccess: () => {
+      navigate("/");
     },
   });
 
