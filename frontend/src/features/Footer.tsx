@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="pb-15">
         <div className="flex items-center gap-2">
           <img src={Icon} alt="logo" className="size-[32px]" />
-          <span className="text-3.5xl text-white">Bob's Farm</span>
+          <span className="text-3.5xl text-white font-medium">Bob's Farm</span>
         </div>
         <div>Template by Dennis Nzioki</div>
       </div>

@@ -9,9 +9,14 @@
   --color-gray-clear: #b3b3b3;
   --color-gray-footer: #1a1a1a;
   --color-gray-footer-letters: #808080;
+  --color-gray-card: #f2f2f2;
+  --color-gray-input: #e5e5e5;
+  --color-gray-link: #666666;
+  --color-success: #00b207;
   --font-script: "Poppins", sans-serif;
   --text-3.5xl: 2rem;
   --shadow-footer: 0px -1px 0px #333333;
+  --shadow-card: 0px 0px 56px rgba(0, 38, 3, 0.08);
 }
 
 @theme inline {
