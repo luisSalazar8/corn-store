@@ -8,7 +8,7 @@ const Footer = () => {
           <img src={Icon} alt="logo" className="size-[32px]" />
           <span className="text-3.5xl text-white font-medium">Bob's Farm</span>
         </div>
-        <div className="mt-4">Template by Dennis Nzioki</div>
+        <div className="mt-4">Template Design by Dennis Nzioki</div>
         <div>Some icons provided by FlatIcon  </div>
       </div>
       <div className="text-center py-6 shadow-footer">
