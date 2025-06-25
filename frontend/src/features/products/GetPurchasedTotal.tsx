@@ -71,7 +71,7 @@ const GetPurchasedTotal = ({ id, name }: GetPurchasedTotalProps) => {
             </DialogTitle>
           </DialogHeader>
           <div className="flex items-center gap-2">
-            You’ve bought {amountBought} {amountBought > 1 ? "items" : "item"}{" "}
+            You’ve bought {amountBought} {amountBought > 1 ? "items" : "item"}
             so far.
           </div>
           <DialogFooter className="sm:justify-start">
