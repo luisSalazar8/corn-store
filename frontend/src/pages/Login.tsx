@@ -1,19 +1,15 @@
-import PasswordInput from "@/components/formComponents/PasswordInput";
 import StyledCard from "@/components/styledComponents/StyledCard";
-import StyledInput from "@/components/styledComponents/StyledInput";
 import { CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router";
 import { FormProvider, useForm } from "react-hook-form";
-import Controlled from "@/components/formComponents/Controlled";
-import { useMutation } from "@tanstack/react-query"; 
+import { useMutation } from "@tanstack/react-query";
 import LoadingButton from "@/components/formComponents/LoadingButton";
-import { toast } from "sonner"; 
+import { toast } from "sonner";
 import { LogIn } from "@/services/Auth";
+import LogInForm from "@/features/user/LogInForm";
+import type { LoginForm } from "@/interface/Auth";
 
-interface LoginForm {
-  email: string;
-  password: string;
-}
+
 
 const Login = () => {
   const methods = useForm<LoginForm>();
@@ -48,26 +44,7 @@ const Login = () => {
             </CardTitle>
             <CardContent>
               <FormProvider {...methods}>
-                <div className="flex flex-col gap-3">
-                  <Controlled
-                    name="email"
-                    input={
-                      <StyledInput
-                        id="email"
-                        type="email"
-                        placeholder="Email"
-                      />
-                    }
-                    rules={{ required: true }}
-                  />
-                  <Controlled
-                    name="password"
-                    input={
-                      <PasswordInput id="password" placeholder="Password" />
-                    }
-                    rules={{ required: true }}
-                  />
-                </div>
+                <LogInForm />
               </FormProvider>
             </CardContent>
             <CardFooter className="flex-col gap-2">
