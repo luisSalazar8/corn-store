@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "./components/ui/sonner";
 import { AuthUserProvider } from "./context/authUser/AuthUserProvider";
 import Products from "./pages/Products";
+import CheckAuth from "./HOC/CheckAuth";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,14 @@ function App() {
               <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/" element={<Products />} />
+                <Route
+                  path="/"
+                  element={
+                    <CheckAuth>
+                      <Products />
+                    </CheckAuth>
+                  }
+                />
               </Routes>
             </div>
             <Footer />
