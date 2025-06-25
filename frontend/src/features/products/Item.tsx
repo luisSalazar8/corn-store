@@ -16,7 +16,7 @@ const Item = ({ item }: ItemProps) => {
         </div>
         <PurchaseItem id={item.id} />
       </div>
-      <div className="absolute top-2 right-2 hidden group-hover:block">
+      <div className="absolute top-2 right-2 invisible  group-hover:visible">
         <GetPurchasedTotal id={item.id} name={item.name} />
       </div>
     </div>

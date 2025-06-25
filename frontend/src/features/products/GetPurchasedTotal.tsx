@@ -45,7 +45,7 @@ const GetPurchasedTotal = ({ id, name }: GetPurchasedTotalProps) => {
   return (
     <React.Fragment>
       <Tooltip>
-        <TooltipTrigger>
+        <TooltipTrigger asChild>
           <button
             disabled={isPending}
             className="bg-white border-gray-card border-solid border rounded-full size-[40px] flex justify-center items-center hover:cursor-pointer"
