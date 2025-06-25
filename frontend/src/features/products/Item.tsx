@@ -1,5 +1,5 @@
 import type { Product } from "@/interface/Product";
-import Bag from "../../assets/images/icons/Bag.svg";
+import PurchaseItem from "./PurchaseItem";
 
 interface ItemProps {
   item: Product;
@@ -13,13 +13,7 @@ const Item = ({ item }: ItemProps) => {
         <div className="capitalize text-sm text-gray-name group-hover:text-success-dark">
           {item.name}
         </div>
-        <button className="group/icon size-[40px] rounded-full bg-gray-card flex justify-center items-center hover:cursor-pointer active:bg-success transition duration-150">
-          <img
-            src={Bag}
-            alt="shopIcon"
-            className="group-active/icon:invert transition duration-150"
-          />
-        </button>
+        <PurchaseItem id={item.id} />
       </div>
     </div>
   );

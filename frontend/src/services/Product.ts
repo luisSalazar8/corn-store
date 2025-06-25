@@ -12,3 +12,18 @@ export const getProducts = async () => {
 
   return response.data;
 };
+
+export const purchaseItem = async (productID: string) => {
+  const response = await axios.post(
+    `${API_LINK}purchase`,
+    { productID },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${await auth.currentUser?.getIdToken()}`,
+      },
+    }
+  );
+
+  return response.data;
+};

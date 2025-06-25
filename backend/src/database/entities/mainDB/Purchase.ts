@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, ManyToOne } from "typeorm";
 import { User } from "./User";
 import { Product } from "./Product";
 
@@ -7,11 +7,11 @@ export class Purchase {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
 
-  @OneToOne(() => User)
+  @ManyToOne(() => User)
   @JoinColumn()
   user!: User;
 
-  @OneToOne(() => Product)
+  @ManyToOne(() => Product)
   @JoinColumn()
   product!: Product;
 }

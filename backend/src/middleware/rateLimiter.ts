@@ -8,7 +8,7 @@ export const rateLimiter = async (
   next: NextFunction
 ) => {
   try {
-    const user = req.user;
+    const user = req.user; 
     const limit = await CheckLimit(user!.id);
 
     if (!limit) {
