@@ -18,7 +18,6 @@ export const firebaseAuthMiddleware = async (
   }
 
   const token = authHeader.split(" ")[1];
-
   try {
     const decodedToken = await admin.auth().verifyIdToken(token);
     req.firebaseUser = decodedToken;
