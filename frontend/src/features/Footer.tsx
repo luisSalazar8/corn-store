@@ -2,7 +2,7 @@ import Icon from "../assets/images/Icon.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-footer px-75 text-gray-footer-letters text-sm pt-10">
+    <footer className="bg-gray-footer px-15 md:px-45 lg:px-75 text-gray-footer-letters text-sm pt-10">
       <div className="pb-6">
         <div className="flex items-center gap-2">
           <img src={Icon} alt="logo" className="size-[32px]" />

@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className="my-20">
+    <div className="my-15">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="max-w-[520px] mx-auto">
           <StyledCard>

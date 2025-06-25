@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="bg-gray-header text-gray-clear text-xs py-3 px-75">
+      <div className="bg-gray-header text-gray-clear text-xs py-3 px-15 md:px-45 lg:px-75">
         <div className="w-fit ml-auto">
           {!user && (
             <React.Fragment>
@@ -57,7 +57,7 @@ const Header = () => {
           )}
         </div>
       </div>
-      <div className="px-75 flex items-center gap-2 py-3">
+      <div className="px-15 md:px-45 lg:px-75 flex items-center gap-2 py-3">
         <img src={Icon} alt="logo" className="size-[32px]" />
         <span className="text-3.5xl font-medium">Bob's Farm</span>
       </div>
