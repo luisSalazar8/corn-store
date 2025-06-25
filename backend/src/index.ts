@@ -26,7 +26,6 @@ async function bootstrap() {
       console.log(`🚀 Server running at http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.log(error);
     process.exit(1);
   }
 }
