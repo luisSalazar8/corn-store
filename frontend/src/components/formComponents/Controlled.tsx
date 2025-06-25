@@ -31,7 +31,7 @@ const Controlled = ({ name, input, rules }: ControlledProps) => {
         rules={rules}
       />
       {errors[name] && (
-        <span className="text-red-500 text-sm">
+        <span className="text-red-500 text-sm font-semibold ml-1">
           {errors[name]?.message as string}
         </span>
       )}
