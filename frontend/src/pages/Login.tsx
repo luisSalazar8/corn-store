@@ -5,10 +5,10 @@ import { CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router";
 import { FormProvider, useForm } from "react-hook-form";
 import Controlled from "@/components/formComponents/Controlled";
-import { useMutation } from "@tanstack/react-query";
-import { LogIn } from "@/services/auth/Login";
+import { useMutation } from "@tanstack/react-query"; 
 import LoadingButton from "@/components/formComponents/LoadingButton";
-import { toast } from "sonner";
+import { toast } from "sonner"; 
+import { LogIn } from "@/services/Auth";
 
 interface LoginForm {
   email: string;
