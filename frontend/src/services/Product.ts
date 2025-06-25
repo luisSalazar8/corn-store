@@ -27,3 +27,17 @@ export const purchaseItem = async (productID: string) => {
 
   return response.data;
 };
+
+export const getPurchasedTotal = async (productID: string) => {
+  const response = await axios.get(
+    `${API_LINK}purchase/${productID}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${await auth.currentUser?.getIdToken()}`,
+      },
+    }
+  );
+
+  return response.data;
+};

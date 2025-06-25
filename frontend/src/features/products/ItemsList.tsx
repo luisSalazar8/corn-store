@@ -1,4 +1,4 @@
-import type { Product } from "@/interface/Product"; 
+import type { Product } from "@/interface/Product";
 import Item from "./Item";
 
 interface ItemsListProps {
@@ -9,7 +9,7 @@ const ItemsList = ({ items }: ItemsListProps) => {
   return (
     <div className="flex w-fit">
       {items.map((item) => (
-        <Item item={item} />
+        <Item item={item} key={item.id} />
       ))}
     </div>
   );

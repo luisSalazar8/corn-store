@@ -37,7 +37,7 @@ router.get(
     const user = req.user;
     const newPurchase = await getPurchasedItemAmount(id, user!.id);
 
-    res.status(200).json({ amout: newPurchase });
+    res.status(200).json({ amount: newPurchase });
   }
 );
 
