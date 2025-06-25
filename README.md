@@ -57,7 +57,7 @@ When the application is running, it will redirect users to the login page if the
 ![image](https://github.com/user-attachments/assets/d8c804c5-fcbd-44be-bd6e-d1462a1ac766)
   
   
-By default, you won’t have an account. You can create one by clicking the Register option and filling out the form. After registration, you’ll be redirected back to the login page.
+By default, you won’t have an account. You can create one by clicking the `Register` option and filling out the form. After registration, you’ll be redirected back to the login page.
 
 ![image](https://github.com/user-attachments/assets/27d3acc9-7359-434d-8998-5c9f9fc9a002)
 
@@ -67,7 +67,7 @@ Once logged in, you'll be taken to the Home page, where a list of products will 
 ![image](https://github.com/user-attachments/assets/a5a0c68b-471b-4dc4-959b-d3abe73bce62)
 
 
-To purchase a product, click on the shopping bag icon. The purchase rate is limited based on the backend configuration defined in the `.env` file.
+To purchase a product, click on the `shopping bag` icon. The purchase rate is limited based on the backend configuration defined in the `.env` file.
 
 ![image](https://github.com/user-attachments/assets/8a0ff7da-f1dd-4631-9f98-1c5779719f3d)
 
@@ -77,13 +77,13 @@ After a successful purchase, a confirmation message will appear.
 ![image](https://github.com/user-attachments/assets/022ff800-a5bf-4f86-b128-3a2e54074960)
 
 
-You can also check how many times you’ve purchased a specific product by clicking the eye icon, which appears when you hover over the product.
+You can also check how many times you’ve purchased a specific product by clicking the `eye` icon, which appears when you hover over the product.
 
 ![image](https://github.com/user-attachments/assets/1774f9eb-2606-4d7c-b1ec-87d0610ed64c)
 ![image](https://github.com/user-attachments/assets/4af2be13-c3c1-47d0-805f-c57a00127fec)
 
 
-To log out, click the Logout option located at the top of the page.
+To log out, click the `Log Out` option located at the top of the page.
 
 ## Credits
 
