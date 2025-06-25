@@ -65,7 +65,7 @@ const Register = () => {
                 <span className="text-gray-footer ml-1 text-sm">
                   <Link
                     to="/login"
-                    className="underline-offset-4 hover:underline hover:decoration-gray-footer"
+                    className="font-medium underline-offset-4 hover:underline hover:decoration-gray-footer"
                   >
                     Login
                   </Link>
