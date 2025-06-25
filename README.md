@@ -84,3 +84,9 @@ You can also check how many times you’ve purchased a specific product by click
 
 
 To log out, click the Logout option located at the top of the page.
+
+## Credits
+
+[Template Design](https://www.figma.com/community/file/1348512198352618529/ecobazar-organic-ecommerce-shop-website) by Dennis Nzioki  
+
+Some icons provided by [FlatIcon](flaticon.com  )
