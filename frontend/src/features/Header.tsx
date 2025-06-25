@@ -57,7 +57,7 @@ const Header = () => {
           )}
         </div>
       </div>
-      <div className="px-75 flex items-center gap-2">
+      <div className="px-75 flex items-center gap-2 py-3">
         <img src={Icon} alt="logo" className="size-[32px]" />
         <span className="text-3.5xl font-medium">Bob's Farm</span>
       </div>
